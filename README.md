@@ -9,7 +9,7 @@ movie_player.py
 
 Subscribed Topics
 ----------
-- /movie/play (movie_player/Play)   play movies by totem program
+- /movie/play (movie_player/PlayList)   play movies by totem program
 - /movie/control (movie_player/Control)   control totem by ROS topic
 
 
