@@ -7,10 +7,6 @@ This controls movie by totem. You needs totem.
 movie_player.py
 ================
 
-Published Topics
-----------
-- None
-
 Subscribed Topics
 ----------
 - /movie/play (movie_player/Play)   play movies by totem program
@@ -24,6 +20,8 @@ movie_player/PlayList message
 movie_player/Control message
 -----------------
 - byte type: type of control (Play:0, Pause:1, Quit:2, Next:3, Previsou:4)
+
+---
 
 volume_controller.py
 ================
@@ -43,6 +41,23 @@ movie_player/Volume message
 ----------
 - byte percentage : percentage of system volume
 
+---
+
+image_display.py
+===================
+this program use ``eog'' to display images in fullscreen. You have to install eog.
+
+Subscribed Topics
+----------
+- /image/display (movie_player/ImageInfo)   display image in fullscreen
+- /image/control (movie_player/Control)     control image by ROS topic (currently, quit only)
+
+
+movie_player/ImageInfo message
+-----------------
+- string path: full path of image file 
+
+---
 
 License
 ------------
