@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 
 import rospy
-
 import subprocess
 
 from media_player.msg import ImageInfo
