@@ -1,12 +1,10 @@
 #! /usr/bin/env python
 
 import rospy
-import roslib
-roslib.load_manifest("movie_player")
 
 import subprocess
 
-from movie_player.msg import Volume
+from media_player.msg import Volume
 
 def set_volume_by_amixer(volume, card_id=0, control='Master'):
     # example command line: amixer -c1 sset PCM 500

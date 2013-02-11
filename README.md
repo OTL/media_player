@@ -1,11 +1,12 @@
-movie_player
+media_player
 ============
 
-Linux ROS movie_player node.
-This controls movie by totem. You needs totem.
+Linux ROS media player nodes.
 
 movie_player.py
 ================
+
+This controls movie by totem. You needs totem.
 
 Subscribed Topics
 ----------

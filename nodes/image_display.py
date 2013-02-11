@@ -1,13 +1,11 @@
 #! /usr/bin/env python
 
 import rospy
-import roslib
-roslib.load_manifest("movie_player")
 
 import subprocess
 
-from movie_player.msg import ImageInfo
-from movie_player.msg import Control
+from media_player.msg import ImageInfo
+from media_player.msg import Control
 
 class ImageDisplay:
     def __init__(self):
