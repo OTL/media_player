@@ -8,6 +8,11 @@ movie_player.py
 
 This controls movie by totem. You needs install totem.
 
+Subscribed Topics
+----------
+- /movie/play (movie_player/PlayList)   play movies by totem program
+- /movie/control (movie_player/Control)   control totem by ROS topic
+
 ### Subscribed Topics ###
 
 - /movie/play (media_player/PlayList)   play movies by totem program

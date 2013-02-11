@@ -1,0 +1,21 @@
+<package>
+  <name>media_player</name>
+  <version>0.1.0</version>
+  <description>media player controled by ros</description>
+  <maintainer email="t.ogura@gmail.com">Takashi Ogura</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/media_player</url>
+  <url type="bugtracker">https://github.com/OTL/media_player</url>
+
+  <author>Takashi Ogura</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+
+  <export>
+
+  </export>
+</package>
