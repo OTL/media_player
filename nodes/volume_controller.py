@@ -2,11 +2,11 @@
 
 import rospy
 import roslib
-roslib.load_manifest("movie_player")
+roslib.load_manifest("media_player")
 
 import subprocess
 
-from movie_player.msg import Volume
+from media_player.msg import Volume
 
 
 def set_volume_by_amixer(volume, card_id=0, control='Master', device=None):

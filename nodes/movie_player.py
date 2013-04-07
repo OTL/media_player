@@ -2,12 +2,12 @@
 
 import rospy
 import roslib
-roslib.load_manifest("movie_player")
+roslib.load_manifest("media_player")
 
 import subprocess
 
-from movie_player.msg import PlayList
-from movie_player.msg import Control
+from media_player.msg import PlayList
+from media_player.msg import Control
 
 class MoviePlayer:
     def __init__(self):

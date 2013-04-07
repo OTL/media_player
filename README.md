@@ -1,23 +1,24 @@
 movie_player
 ============
 
-Linux ROS movie_player node.
-This controls movie by totem. You needs totem.
+Linux ROS media control nodes.
 
 movie_player.py
 ================
 
+This controls movie by totem. You needs install totem.
+
 Subscribed Topics
 ----------
-- /movie/play (movie_player/PlayList)   play movies by totem program
-- /movie/control (movie_player/Control)   control totem by ROS topic
+- /movie/play (media_player/PlayList)   play movies by totem program
+- /movie/control (media_player/Control)   control totem by ROS topic
 
 
-movie_player/PlayList message
+media_player/PlayList message
 -----------------
 - string[] paths:   full path of movie to be played
 
-movie_player/Control message
+media_player/Control message
 -----------------
 - byte type: type of control (Play:0, Pause:1, Quit:2, Next:3, Previsou:4)
 
@@ -29,7 +30,7 @@ controls linux system volume using amixer.
 
 Subscribed Topics
 ----------
-- /audio_volume (movie_player/Volume)   set system audio volume by volume percentage
+- /audio_volume (media_player/Volume)   set system audio volume by volume percentage
 
 Parameters
 -----------
@@ -37,7 +38,7 @@ Parameters
 - ~card_id (default: 0) : id of sound card
 - ~control (defalut: PCM) : this must be Master if you want to control all volumes.
 
-movie_player/Volume message
+media_player/Volume message
 ----------
 - byte percentage : percentage of system volume
 
@@ -49,11 +50,11 @@ this program use ``eog'' to display images in fullscreen. You have to install eo
 
 Subscribed Topics
 ----------
-- /image/display (movie_player/ImageInfo)   display image in fullscreen
-- /image/control (movie_player/Control)     control image by ROS topic (currently, quit only)
+- /image/display (media_player/ImageInfo)   display image in fullscreen
+- /image/control (media_player/Control)     control image by ROS topic (currently, quit only)
 
 
-movie_player/ImageInfo message
+media_player/ImageInfo message
 -----------------
 - string path: full path of image file 
 
