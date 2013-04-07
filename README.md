@@ -8,6 +8,8 @@ movie_player.py
 
 This controls movie by totem. You needs install totem.
 
+This controls movie by totem. You needs totem.
+
 Subscribed Topics
 ----------
 - /movie/play (movie_player/PlayList)   play movies by totem program
