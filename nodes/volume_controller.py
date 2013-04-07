@@ -8,19 +8,27 @@ import subprocess
 
 from movie_player.msg import Volume
 
-def set_volume_by_amixer(volume, card_id=0, control='Master'):
+
+def set_volume_by_amixer(volume, card_id=0, control='Master', device=None):
     # example command line: amixer -c1 sset PCM 500
-    args = ["amixer", "-c%d"%card_id, "sset", control, str(volume)]
+    if device:
+        args = ["amixer", "-D"+device, "sset", control, str(volume)]
+    else:
+        args = ["amixer", "-c%d"%card_id, "sset", control, str(volume)]
     result = subprocess.call(args)
     if result == 0:
         return True
     else:
         return False
-    
+
 
 class VolumeController:
     def __init__(self):
         self.max_value = rospy.get_param('~max_value', 255)
+        if rospy.has_param('~device'):
+            self.use_device = rospy.get_param('~device')
+        else:
+            self.use_device = None
         self.card_id = rospy.get_param('~card_id', 0)
         self.control = rospy.get_param('~control', 'PCM')
         self.sub = rospy.Subscriber("/audio_volume",
@@ -39,7 +47,7 @@ class VolumeController:
 
     def change_volume_by_msg(self, msg):
         value = self.percentage_to_value(msg.percentage)
-        if not set_volume_by_amixer(value, card_id=self.card_id, control=self.control):
+        if not set_volume_by_amixer(value, card_id=self.card_id, control=self.control, device=self.use_device):
             rospy.logerr('set volume by amixer failed')
 
 if __name__ == '__main__':
