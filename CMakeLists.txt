@@ -19,3 +19,8 @@ catkin_package(
     LIBRARIES # TODO
 )
 
+install(PROGRAMS nodes/image_display.py
+  nodes/movie_player.py
+  nodes/volume_controller.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
