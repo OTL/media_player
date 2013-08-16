@@ -6,6 +6,9 @@ import subprocess
 
 from media_player.msg import Volume
 
+def set_volume_by_pacmd(volume, index=0):
+    result = subprocess.call(["pacmd", "set-sink-volume", index, volume])
+    return result == 0
 
 def set_volume_by_amixer(volume, card_id=0, control='Master', device=None):
     # example command line: amixer -c1 sset PCM 500
@@ -45,8 +48,9 @@ class VolumeController:
 
     def change_volume_by_msg(self, msg):
         value = self.percentage_to_value(msg.percentage)
-        if not set_volume_by_amixer(value, card_id=self.card_id, control=self.control, device=self.use_device):
-            rospy.logerr('set volume by amixer failed')
+        set_volume_by_pacmd(msg.percentage * 0.01 * 80000)
+#        if not set_volume_by_amixer(value, card_id=self.card_id, control=self.control, device=self.use_device):
+#            rospy.logerr('set volume by amixer failed')
 
 if __name__ == '__main__':
     rospy.init_node('volume_controller')
